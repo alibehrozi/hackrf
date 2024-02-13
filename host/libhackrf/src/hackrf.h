@@ -1125,6 +1125,17 @@ extern ADDAPI int ADDCALL hackrf_open_by_serial(
 	hackrf_device** device);
 
 /**
+ * Open HackRF device by file descriptor
+ * @param[in] desired_serial_number file descriptor of device to open.
+ * @param[out] device device handle
+ * @return @ref HACKRF_SUCCESS on success, @ref HACKRF_ERROR_INVALID_PARAM if @p device is NULL, @ref HACKRF_ERROR_NOT_FOUND if no HackRF devices are found or other @ref hackrf_error variant
+ * @ingroup device
+ */
+extern ADDAPI int ADDCALL hackrf_open_by_file_descriptor(
+        int desired_file_descriptor,
+        hackrf_device** device);
+
+/**
  * Close a previously opened device
  * @param[in] device device to close
  * @return @ref HACKRF_SUCCESS on success or variant of @ref hackrf_error
